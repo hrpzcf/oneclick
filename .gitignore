@@ -1,0 +1,12 @@
+.vs/
+.vscode/
+execbin/oneclick.pdb
+oneclick/x64/
+x64/
+Win32/
+oneclick/Debug/
+oneclick/Release/
+/binfile
+/oneclickshell/obj
+/setup/Debug
+/setup/Release

@@ -27,7 +27,7 @@ int WINAPI wWinMain(_In_ HINSTANCE hInstance, _In_opt_ HINSTANCE hPrevInstance, 
         MessageBoxW(NULL, L"参数错误，常用：-fullpath \"%V\"或-basename \"%V\"", L"错误", uType);
         goto FreeAndReturn;
     }
-    for (INT i = 0; i < wcslen(ModPath); ++i) {
+    for (SIZE_T i = 0; i < wcslen(ModPath); ++i) {
         if (ModPath[i] == SEPERATOR)
             ModPath[i] = SEPERATOR_ALT;
     }

@@ -4,6 +4,8 @@
 
 #define CLIP_FULLPATH L"-fullpath"
 #define CLIP_BASENAME L"-basename"
+#define SEPERATOR L'\\'
+#define SEPERATOR_ALT L'/'
 
 int WINAPI wWinMain(_In_ HINSTANCE hInstance, _In_opt_ HINSTANCE hPrevInstance, _In_ LPWSTR lpCmdLine, _In_ int nShowCmd) {
     HGLOBAL GMEMClipbord = NULL;
@@ -24,6 +26,10 @@ int WINAPI wWinMain(_In_ HINSTANCE hInstance, _In_opt_ HINSTANCE hPrevInstance, 
     else {
         MessageBoxW(NULL, L"参数错误，常用：-fullpath \"%V\"或-basename \"%V\"", L"错误", uType);
         goto FreeAndReturn;
+    }
+    for (INT i = 0; i < wcslen(ModPath); ++i) {
+        if (ModPath[i] == SEPERATOR)
+            ModPath[i] = SEPERATOR_ALT;
     }
     szPath = sizeof(WCHAR) * (wcslen(ModPath) + 1);
     GMEMClipbord = GlobalAlloc(GPTR, szPath);
